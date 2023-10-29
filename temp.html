@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(to bottom, #E1306C, #FE4980, #FEE7E6);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+
+        .input-container input {
+            width: 65%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .unit-label {
+            width: 30%;
+            text-align: right;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        #result {
+            font-size: 20px;
+            color: #fff;
+            margin-top: 15px;
+        }
+
+        button {
+            background: linear-gradient(to right, #FDCB2B, #FDC527);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #FFDF53, #FDC727);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Temperature Converter</h1>
+        <div class="input-container">
+            <input type="number" id="celsius" placeholder="Celsius" oninput="convert('celsius', 'fahrenheit', 'kelvin')">
+            <span class="unit-label">°C</span>
+        </div>
+        <div class="input-container">
+            <input type="number" id="fahrenheit" placeholder="Fahrenheit" oninput="convert('fahrenheit', 'celsius', 'kelvin')">
+            <span class="unit-label">°F</span>
+        </div>
+        <div class="input-container">
+            <input type="number" id="kelvin" placeholder="Kelvin" oninput="convert('kelvin', 'celsius', 'fahrenheit')">
+            <span class="unit-label">K</span>
+        </div>
+        <button onclick="convert('celsius', 'fahrenheit', 'kelvin')">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convert(from, to1, to2) {
+            const input = parseFloat(document.getElementById(from).value);
+
+            if (!isNaN(input)) {
+                let result1, result2;
+
+                if (from === 'celsius') {
+                    result1 = (input * 9/5) + 32;
+                    result2 = input + 273.15;
+                } else if (from === 'fahrenheit') {
+                    result1 = (input - 32) * 5/9;
+                    result2 = ((input - 32) * 5/9) + 273.15;
+                } else if (from === 'kelvin') {
+                    result1 = input - 273.15;
+                    result2 = (input * 9/5) - 459.67;
+                }
+
+                document.getElementById(to1).value = result1.toFixed(2);
+                document.getElementById(to2).value = result2.toFixed(2);
+                document.getElementById('result').textContent = `Approximately ${result1.toFixed(2)} °${to1.toUpperCase()} / ${result2.toFixed(2)} °${to2.toUpperCase()}`;
+            } else {
+                document.getElementById(to1).value = '';
+                document.getElementById(to2).value = '';
+                document.getElementById('result').textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
+
+

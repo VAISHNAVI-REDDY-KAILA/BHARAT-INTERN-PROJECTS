@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #eb5757;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 28px;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #fff;
+        }
+
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .content h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .content p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Vaishnavi Reddy</div>
+        <nav>
+            <a data-section="about">About</a>
+            <a data-section="blog">Blog</a>
+            <a data-section="projects">Projects</a>
+            <a data-section="contact">Contact</a>
+            <a data-section="qualifications">Education</a>
+            <a data-section="interests">Interests</a>
+        </nav>
+    </header>
+
+    <div class="content" id="about">
+        <h1>About Me</h1>
+        <p>Welcome to my corner of the internet, where I'm a web design rookie with big dreams and a small amount of coding know-how.</p>
+        <p> I'm here to prove that even beginners can dabble in the digital arts. </p>
+        <p>So, grab your popcorn, and let's embark on this entertaining journey of me trying not to crash the website (most of the time). Enjoy the ride!</p>
+    </div>
+
+    <div class="content" id="blog">
+        <h1>Blog</h1>
+        <p>Hello, I'm Vaishnavi. Here in my blog, I share my thoughts, experiences, and insights about computer engineering, chemical engineering, and everything in between.
+        <p>Stay tuned for articles on the latest technology trends, innovative projects, and the fascinating world of chemical processes. Feel free to explore my writings and join the conversation.</p>
+    </div>
+
+    <div class="content" id="contact">
+        <h1>Contact Information</h1>
+        <p>Email: vaishnavireddykaila@gmail.com</p>
+    </div>
+
+    <div class="content" id="qualifications">
+        <h1>Educational Qualifications</h1>
+        <p>Undergraduate student in Chemical Engineering at JNTUH.
+        <p>Asiring web developer with a passion for coding.</p>
+        <p>Balancing the world of chemical compounds and web development challenges.</p>
+        <p>Stay tuned for my unique experiments at the intersection of these two worlds!</p>
+    </div>
+
+    <div class="content" id="interests">
+        <h1>Interests</h1>
+        <p>Full Stack Development</p>
+        <p>I find solace in creativity, whether it's painting, design, or pushing the boundaries of web development.</p>
+
+        <p>When I'm not typing lines of code, you can often find me gracefully dancing to the enchanting rhythms of Kuchipudi.</p>
+
+        <p>I've got a knack for humor, and I'm not afraid to use it. Laughter is my secret weapon in tackling life's challenges.</p>
+
+        <p>I dabble in the art of words, weaving stories, and spinning tales to transport readers to different worlds. Whether it's a blog post, a poem, or a clever tweet, I love the magic of words.</p>
+        
+    </div>
+
+    <div class="content" id="projects">
+        <h1>Projects</h1>
+        <p>Portfolio Website: I'm crafting a digital masterpiece – my very own portfolio website. It's a canvas where I showcase my passion for design and web development, allowing me to flex my creative muscles and share my work with the world</p>
+        <p>Temperature Converter: In collaboration with Bharat Intern, I'm working on a nifty temperature converter tool. It's a handy utility that helps you switch between Celsius, Fahrenheit, and Kelvin, making those pesky weather forecasts a breeze to decipher. </p>
+        <p>Netflix Clone Website: Another exciting project in the works, a Netflix clone website. It's a tribute to the streaming giant, where I'm putting my web development skills to the test to recreate the magic of Netflix right in your browser. </p>
+    </div>
+
+    <script>
+        const navLinks = document.querySelectorAll("nav a");
+        const contentSections = document.querySelectorAll(".content");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                const sectionId = link.getAttribute("data-section");
+                contentSections.forEach(section => {
+                    section.style.display = "none";
+                });
+                document.getElementById(sectionId).style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
+
